@@ -132,7 +132,7 @@ yosys> show
 
 **Synthesized Circuit**
 
-![icg_synth](https://user-images.githubusercontent.com/67214592/183945532-d69681e1-295b-4e35-b741-efc7123ddf2c.PNG)
+![Screenshot from 2023-10-17 23-50-29](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/22b4d079-1ab8-4d32-9d8c-2bca16344016)
 
 ```
 //Writing Netlist//
@@ -155,7 +155,7 @@ Commands to Invoke GLS
 ```
 $ iverilog -DFUNCTIONAL -DUNIT_DELAY=#1 ../verilog_model/primitives.v ../verilog_model/sky130_fd_sc_hd.v iiitb_icg_synth.v iiitb_icg_tb.v
 $ ./a.out
-$ gtkwave iiitb.icg_tb.v
+$ gtkwave pes.icg_tb.v
 ```
 
 **Gate Level Simulation**
