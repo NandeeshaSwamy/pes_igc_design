@@ -1,4 +1,4 @@
-h1 align="center">RTL to GDSII using SKY130nm Technology node</h1>
+<h1 align="center">RTL to GDSII using SKY130nm Technology node</h1>
 
 <h1 align="center">Integrated Clock Gating (ICG) Design</h1>
 
@@ -66,15 +66,7 @@ $ git clone https://github.com/drvasanthi/iiitb_cg
 $ cd /home/vasanthidr11/Desktop/iiitb_cg/
 ```
 
-2. Details information of files
-
-![image](https://user-images.githubusercontent.com/67214592/183938100-3ac9896b-b7f5-49f5-8caf-f5d8e87e89e7.png)
-
-![image](https://user-images.githubusercontent.com/67214592/183938162-c38446f1-5079-4915-91e1-ac469c89cc24.png)
-
-![image](https://user-images.githubusercontent.com/67214592/183938219-de9c115a-8a6e-4159-acd7-12cfd6f6832c.png)
-
-3. To Run the .v file, type the following commands
+2. To Run the .v file, type the following commands
 
 ```html
 $ iverilog iiitb_icg.v iiitb_icg_tb.v
@@ -84,19 +76,19 @@ $VCD info: dumpfile iiitb_icg_tb.vcd opened for output.
 
 $ gtkwave iiitb_icg_tb
 ```
-![RTLicg](https://user-images.githubusercontent.com/67214592/183932716-48dd485e-6e12-4bf6-a658-955cc8b094da.PNG)
+![Screenshot from 2023-10-18 01-11-30](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/c00c42f4-2304-4afa-a20b-881db83cfcf5)
 
 ## ICG - Synthesis
 
 1. Invoke the yosys using following commands
 
-![image](https://user-images.githubusercontent.com/67214592/183289143-1ecf0702-ef0a-4187-8c6d-531cb8866ba7.png)
 
 ```
 // reads the library file from sky130//
 
 yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
+![Screenshot from 2023-10-17 23-53-39](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/34f8bcb8-ab8f-454d-8a9e-28227b270f0d)
 
 ```
 // reads the verilog files//
@@ -123,6 +115,8 @@ yosys> dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 yosys> abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 yosys> stat
 ```
+![Screenshot from 2023-10-17 23-58-13](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/bfe07d99-9cba-4e59-a924-60e0ea02292b)
+![Screenshot from 2023-10-17 23-58-32](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/da0afeb5-8e69-4bdf-9d19-6473dd596448)
 
 ```
 //Simplified netlist//
@@ -146,6 +140,7 @@ yosys> show
 yosys> write_verilog -noattr iiitb_icg_netlist.v
 yosys> stat
 ```
+![Screenshot from 2023-10-17 23-58-54](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/c2b7ffc1-d218-4490-9288-28a5435f4c33)
 
 ```
 //Simplified Netlist - As code dwells with additional switch//
@@ -165,4 +160,4 @@ $ gtkwave iiitb.icg_tb.v
 
 **Gate Level Simulation**
 
-![glsicg](https://user-images.githubusercontent.com/67214592/183949929-0713fee6-cd95-44b2-b029-dab0a2a2c498.PNG)
+![Screenshot from 2023-10-17 23-43-27](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/b6c27e18-17a0-4ba2-9ae1-c54b2fa3e255)
