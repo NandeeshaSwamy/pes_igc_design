@@ -161,3 +161,163 @@ $ gtkwave pes.icg_tb.v
 **Gate Level Simulation**
 
 ![Screenshot from 2023-10-17 23-43-27](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/b6c27e18-17a0-4ba2-9ae1-c54b2fa3e255)
+
+## **III. Physical Design from Netlist to GDSII**
+
+Physical design is process of transforming netlist into layout which is manufacture-able [GDS]. Physical design process is often referred as PnR (Place and Route). Main steps in physical design are placement of all logical cells, clock tree synthesis & routing. During this process of physical design timing, power, design & technology constraints have to be met. Further design might require being optimized w.r.t power, performance and area.
+
+### **1. Installation of ngspice magic and OpenLane**
+
+**ngspice**
+- Download the tarball from https://sourceforge.net/projects/ngspice/files/ to a local directory
+```
+cd $HOME
+sudo apt-get install libxaw7-dev
+tar -zxvf ngspice-41.tar.gz
+cd ngspice-41
+mkdir release
+cd release
+../configure  --with-x --with-readline=yes --disable-debug
+sudo make
+sudo make install
+```
+
+**magic**
+```
+sudo apt-get install m4
+sudo apt-get install tcsh
+sudo apt-get install csh
+sudo apt-get install libx11-dev
+sudo apt-get install tcl-dev tk-dev
+sudo apt-get install libcairo2-dev
+sudo apt-get install mesa-common-dev libglu1-mesa-dev
+sudo apt-get install libncurses-dev
+git clone https://github.com/RTimothyEdwards/magic
+cd magic
+./configure
+sudo make
+sudo make install
+```
+
+**OpenLANE**
+```
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt install -y build-essential python3 python3-venv python3-pip make git
+
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io
+sudo docker run hello-world
+sudo groupadd docker
+sudo usermod -aG docker $USER
+sudo reboot 
+# After reboot
+docker run hello-world (should show you the output under 'Example Output' in https://hub.docker.com/_/hello-world)
+
+- To install the PDKs and Tools
+cd $HOME
+git clone https://github.com/The-OpenROAD-Project/OpenLane
+cd OpenLane
+make
+make test
+```
+
+### **2. Invoke Openlane and prepare design**
+
+> Step1: To start openlane, we open the shell in openLANE_flow(openlane) directory and run the command,
+  
+  ![image](https://user-images.githubusercontent.com/67214592/187149282-80b98d3c-82d2-40b6-a752-f02be949f654.png)
+  
+> Step 2:Import openlane packages specifying its version and specify the design that we intend to work on, which is iiitb_icg
+  
+  ![pack and prep](https://user-images.githubusercontent.com/67214592/186325966-6d4f1763-9e81-469b-8054-e1b075e11b87.PNG)
+
+> Step 3: Include the below command to include the additional lef into the flow:
+  
+  ![image](https://user-images.githubusercontent.com/67214592/187150066-0151166f-aa7f-4f3b-a766-41ba1b18122c.png)
+
+This command merges two lefs and places it in a new folder which is named as date and time while running the command, inside directory designs/iiitb_icg/runs/.
+
+### **3. Synthesis**
+
+Synthesis is process of converting RTL (Synthesizable Verilog code) to technology specific gate level netlist (includes nets, sequential and combinational cells and their connectivity).
+
+![Screenshot from 2023-11-03 12-59-04](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/ade10fd3-09bb-4b9e-bfbf-aba48c41d906)
+
+Synthesis report
+
+
+![Screenshot from 2023-11-03 14-39-23](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/e644eb2f-2a56-40b2-afc6-d8701c291951)
+
+### **4. Floorplan**
+
+![Screenshot from 2023-11-03 12-59-24](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/17c94031-0316-479a-9633-0a312b04a978)
+
+```
+$ magic -T /home/poojar/OpenLane/vsdstdcelldesign/libs/sky130A.tech lef read /home/poojar/OpenLane/LIFO/runs/RUN_2023.11.03_07.14.55/tmp/merged.max.lef def lifo.def &
+```
+![Screenshot from 2023-11-03 13-04-15](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/6eb03eea-0ec8-491c-a39c-1d8ad2e2b88a)
+
+![Screenshot from 2023-11-03 13-04-37](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/4e37b749-c731-413e-a825-4dbafebc4282)
+
+### **5. Placement**
+
+![Screenshot from 2023-11-03 13-05-49](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/df657263-8147-4134-b355-ca2ad6e1b5d8)
+
+```
+$ magic -T /home/poojar/OpenLane/vsdstdcelldesign/libs/sky130A.tech lef read /home/poojar/OpenLane/LIFO/runs/RUN_2023.11.03_07.14.55/tmp/merged.max.lef def lifo.def &
+```
+![Screenshot from 2023-11-03 13-10-00](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/032faf38-3aa3-40ef-aa1a-dc6bf7cb225e)
+
+![Screenshot from 2023-11-03 13-10-13](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/c1ae552e-d02b-4f1b-9a2b-fdd0c2a24b3a)
+
+
+### **6. CTS**
+
+![Screenshot from 2023-11-03 13-15-20](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/eaa896f6-3d02-467c-aa60-2bf83f94f149)
+
+#### **Reports Generated**
+
+![Screenshot from 2023-11-03 13-22-23](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/95b739e1-1c20-4f38-8ac9-4eae18d54ed3)
+
+![Screenshot from 2023-11-03 13-27-46](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/1bc3b90c-f5a2-49f9-a797-79f66b67561b)
+
+![Screenshot from 2023-11-03 13-28-10](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/4dbfa7cd-fd9f-4b4e-8d00-88c1576bb355)
+
+![Screenshot from 2023-11-03 13-29-18](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/4ad7363b-0337-40ed-b540-45a623443e1c)
+
+![Screenshot from 2023-11-03 13-29-38](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/f4ab2026-7521-4116-b3ca-17d72a2dff0b)
+
+![Screenshot from 2023-11-03 13-32-09](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/14c00ea5-ed40-44ae-b9d2-9eb6d3df27ae)
+
+#### **Power Report**
+
+![Screenshot from 2023-11-03 18-40-02](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/402dd33a-66ca-4168-8e13-84d2095cd0cf)
+
+#### **Skew Report**
+
+![Screenshot from 2023-11-03 18-40-21](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/0afe9cee-eedb-460d-8f3a-344ff2671bd6)
+
+![Screenshot from 2023-11-03 18-40-47](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/87025a9c-df60-4692-81dd-864631788c71)
+
+#### **Area Report**
+
+![Screenshot from 2023-11-03 18-41-11](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/2a22fb80-e8c2-4eab-94dd-1b67fae247a9)
+
+
+### **7. Routing**
+
+![Screenshot from 2023-11-03 13-37-54](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/2d6b010b-e8cc-4f09-9b7b-61fc6721f666)
+
+```
+$ magic -T /home/poojar/OpenLane/vsdstdcelldesign/libs/sky130A.tech lef read /home/poojar/OpenLane/LIFO/runs/RUN_2023.11.03_07.14.55/tmp/merged.max.lef def lifo.def &
+```
+
+![Screenshot from 2023-11-03 13-45-36](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/45c002bb-d141-46bc-bc89-20c9d6edf705)
+
+![Screenshot from 2023-11-03 13-45-55](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/870df1bc-086f-429c-9f3b-dc759b56c8ce)
