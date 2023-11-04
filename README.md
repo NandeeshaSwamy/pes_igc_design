@@ -283,32 +283,29 @@ magic -T /home/my_ubuntu/OpenLane/vsdstdcelldesign/libs/sky130A.tech lef read /h
 
 #### **Reports Generated**
 
-![Screenshot from 2023-11-03 13-22-23](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/95b739e1-1c20-4f38-8ac9-4eae18d54ed3)
+![Screenshot from 2023-11-05 01-57-07](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/ddac2bac-5e28-4be1-898d-61c272602f9f)
 
-![Screenshot from 2023-11-03 13-27-46](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/1bc3b90c-f5a2-49f9-a797-79f66b67561b)
+![Screenshot from 2023-11-05 01-48-36](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/6f968405-81ab-4ef4-828a-418544396d43)
 
-![Screenshot from 2023-11-03 13-28-10](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/4dbfa7cd-fd9f-4b4e-8d00-88c1576bb355)
+![Screenshot from 2023-11-05 01-52-14](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/b476e950-53ec-4771-9e6b-c57e1e58cec4)
 
-![Screenshot from 2023-11-03 13-29-18](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/4ad7363b-0337-40ed-b540-45a623443e1c)
-
-![Screenshot from 2023-11-03 13-29-38](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/f4ab2026-7521-4116-b3ca-17d72a2dff0b)
-
-![Screenshot from 2023-11-03 13-32-09](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/14c00ea5-ed40-44ae-b9d2-9eb6d3df27ae)
+![Screenshot from 2023-11-05 01-53-39](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/9fdef679-18e8-43fd-8741-7f63dfef77d9)
 
 #### **Power Report**
 
-![Screenshot from 2023-11-03 18-40-02](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/402dd33a-66ca-4168-8e13-84d2095cd0cf)
+![Screenshot from 2023-11-05 01-55-01](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/3695a8df-4b56-43d5-8bf5-7db3d0a2cf62)
 
 #### **Skew Report**
 
-![Screenshot from 2023-11-03 18-40-21](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/0afe9cee-eedb-460d-8f3a-344ff2671bd6)
+![Screenshot from 2023-11-05 01-55-25](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/9951a358-674f-479a-9d19-eebabd7c6f4c)
 
-![Screenshot from 2023-11-03 18-40-47](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/87025a9c-df60-4692-81dd-864631788c71)
+### **Summary report**
+
+![Screenshot from 2023-11-05 01-56-13](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/e744371b-fee8-4843-8bf4-926dccc67beb)
 
 #### **Area Report**
 
-![Screenshot from 2023-11-03 18-41-11](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/2a22fb80-e8c2-4eab-94dd-1b67fae247a9)
-
+![Screenshot from 2023-11-05 01-56-30](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/3d355344-ef76-4db8-8454-478d98d17e43)
 
 ### **7. Routing**
 
