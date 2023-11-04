@@ -247,30 +247,35 @@ Synthesis is process of converting RTL (Synthesizable Verilog code) to technolog
 
 Synthesis report
 
-![Screenshot from 2023-11-03 14-39-23](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/e644eb2f-2a56-40b2-afc6-d8701c291951)
+![Screenshot from 2023-11-05 00-00-30](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/68ac4ca2-9767-45c4-8c63-d6c394d8e675)
 
 ### **4. Floorplan**
 
 ![Screenshot from 2023-11-04 16-29-54](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/b046b61a-bb89-4bcb-a9be-2aa15863d5fc)
 
 ```
-$ magic -T /home/poojar/OpenLane/vsdstdcelldesign/libs/sky130A.tech lef read /home/poojar/OpenLane/LIFO/runs/RUN_2023.11.03_07.14.55/tmp/merged.max.lef def lifo.def &
+magic -T /home/my_ubuntu/OpenLane/vsdstdcelldesign/libs/sky130A.tech lef read /home/my_ubuntu/OpenLane/pes_icg/runs/RUN_2023.11.04_13.18.22/tmp/merged.max.lef def pes_icg.def &
 ```
-![Screenshot from 2023-11-03 13-04-15](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/6eb03eea-0ec8-491c-a39c-1d8ad2e2b88a)
+![Screenshot from 2023-11-05 01-30-28](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/2ad821ce-9022-4b43-a3dd-6f5b2f3253dd)
 
-![Screenshot from 2023-11-03 13-04-37](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/4e37b749-c731-413e-a825-4dbafebc4282)
+![Screenshot from 2023-11-05 00-58-27](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/5f127518-5856-4ed7-a9b7-4d69d273dfee)
+
+![Screenshot from 2023-11-05 00-59-57](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/b7e1980d-c5d3-47bf-aabc-22858fb05131)
 
 ### **5. Placement**
 
 ![Screenshot from 2023-11-04 18-51-35](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/e9fbbe2e-ae6d-40c1-8e8c-2ef8fd72830a)
 
 ```
-$ magic -T /home/poojar/OpenLane/vsdstdcelldesign/libs/sky130A.tech lef read /home/poojar/OpenLane/LIFO/runs/RUN_2023.11.03_07.14.55/tmp/merged.max.lef def lifo.def &
+magic -T /home/my_ubuntu/OpenLane/vsdstdcelldesign/libs/sky130A.tech lef read /home/my_ubuntu/OpenLane/pes_icg/runs/RUN_2023.11.04_13.18.22/tmp/merged.max.lef def pes_icg.def &
 ```
-![Screenshot from 2023-11-03 13-10-00](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/032faf38-3aa3-40ef-aa1a-dc6bf7cb225e)
+![Screenshot from 2023-11-05 01-30-49](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/0e3be562-fa01-46af-99b0-18fe019f5f1a)
 
-![Screenshot from 2023-11-03 13-10-13](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/c1ae552e-d02b-4f1b-9a2b-fdd0c2a24b3a)
+![Screenshot from 2023-11-05 01-18-58](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/69693175-ab4f-45ca-b75f-d8415743d5f3)
 
+![Screenshot from 2023-11-05 01-18-35](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/17a11280-d084-44cb-9820-2decf0016936)
+
+![Screenshot from 2023-11-05 01-23-41](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/d9b49664-3729-48d1-84a1-989ac48748f1)
 
 ### **6. CTS**
 
@@ -310,9 +315,12 @@ $ magic -T /home/poojar/OpenLane/vsdstdcelldesign/libs/sky130A.tech lef read /ho
 ![Screenshot from 2023-11-04 18-55-16](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/956febf4-b967-4e69-9590-a73c669f887b)
 
 ```
-$ magic -T /home/poojar/OpenLane/vsdstdcelldesign/libs/sky130A.tech lef read /home/poojar/OpenLane/LIFO/runs/RUN_2023.11.03_07.14.55/tmp/merged.max.lef def lifo.def &
+magic -T /home/my_ubuntu/OpenLane/vsdstdcelldesign/libs/sky130A.tech lef read /home/my_ubuntu/OpenLane/pes_icg/runs/RUN_2023.11.04_13.18.22/tmp/merged.max.lef def pes_icg.def &
 ```
+![Screenshot from 2023-11-05 01-31-10](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/d644f3fc-c03b-44ef-bdb0-2b78d204e597)
 
-![Screenshot from 2023-11-03 13-45-36](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/45c002bb-d141-46bc-bc89-20c9d6edf705)
+![Screenshot from 2023-11-05 01-19-47](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/1305e4a8-c8c5-4282-9ad7-8911e1f8121b)
 
-![Screenshot from 2023-11-03 13-45-55](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/870df1bc-086f-429c-9f3b-dc759b56c8ce)
+![Screenshot from 2023-11-05 01-20-08](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/81b1b01d-021d-4284-8ada-ca6b8a983b6d)
+
+![Screenshot from 2023-11-05 01-22-19](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/cdec18c3-18a9-4a98-b04e-969aee0e72c8)
