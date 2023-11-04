@@ -10,7 +10,16 @@ II. [**RTL Design and Synthesis**](https://github.com/drvasanthi/iiitb_cg#ii-rtl
   1. [Icarus Verilog (iverilog) & Yosys Installation on Ubuntu](https://github.com/drvasanthi/iiitb_cg#1-icarus-verilog-iverilog--yosys-installation-on-ubuntu)  
   2. [RTL Pre-Simulation](https://github.com/drvasanthi/iiitb_cg#rtl-pre-simulation)  
   3. [Synthesis](https://github.com/drvasanthi/iiitb_cg#icg---synthesis)  
-  4. [GLS Post-simulation](https://github.com/drvasanthi/iiitb_cg#gls-post-simulation)  
+  4. [GLS Post-simulation](https://github.com/drvasanthi/iiitb_cg#gls-post-simulation)
+
+III. [**Physical Design from Netlist to GDSII**](https://github.com/drvasanthi/iiitb_cg#iii-physical-design-from-netlist-to-gdsii)  
+  1. [Invoke OpenLane](https://github.com/drvasanthi/iiitb_cg#1-invoke-openlane)  
+  2. [To Build Inverter Standard Cell Design](https://github.com/drvasanthi/iiitb_cg#2-to-build-inverter-standard-cell-design)  
+  3. [Synthesis](https://github.com/drvasanthi/iiitb_cg#3-synthesis)      
+  4. [Floorplan](https://github.com/drvasanthi/iiitb_cg#4-floorplan)  
+  5. [Placement](https://github.com/drvasanthi/iiitb_cg#5-placement)  
+  6. [CTS](https://github.com/drvasanthi/iiitb_cg#6-clcok-tree-synthesis-cts)  
+  7. [Routing](https://github.com/drvasanthi/iiitb_cg#7-routing) 
 
 ## **I. Introduction**
 
