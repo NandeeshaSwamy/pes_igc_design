@@ -230,16 +230,21 @@ make test
 ### **2. Invoke Openlane and prepare design**
 
 > Step1: To start openlane, we open the shell in openLANE_flow(openlane) directory and run the command,
-  
-  ![image](https://user-images.githubusercontent.com/67214592/187149282-80b98d3c-82d2-40b6-a752-f02be949f654.png)
+
+  ![Screenshot from 2023-11-04 15-43-43](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/c6078e29-9c16-4cba-aa28-348e8aee03fd)
+
   
 > Step 2:Import openlane packages specifying its version and specify the design that we intend to work on, which is iiitb_icg
-  
-  ![pack and prep](https://user-images.githubusercontent.com/67214592/186325966-6d4f1763-9e81-469b-8054-e1b075e11b87.PNG)
 
-> Step 3: Include the below command to include the additional lef into the flow:
-  
-  ![image](https://user-images.githubusercontent.com/67214592/187150066-0151166f-aa7f-4f3b-a766-41ba1b18122c.png)
+![Screenshot from 2023-11-04 16-21-09](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/2119109c-e31b-469c-b5bd-dc7c87aab53b)
+
+> Step 3: Prepare design
+
+![Screenshot from 2023-11-04 16-21-20](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/6ca40bf8-4d79-49e4-8dde-1a82489c867d)
+
+> Step 4: Include the below command to include the additional lef into the flow:
+
+![Screenshot from 2023-11-04 16-27-09](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/4c9e35f1-7876-4aed-bef2-47b997db2f09)
 
 This command merges two lefs and places it in a new folder which is named as date and time while running the command, inside directory designs/iiitb_icg/runs/.
 
@@ -247,16 +252,15 @@ This command merges two lefs and places it in a new folder which is named as dat
 
 Synthesis is process of converting RTL (Synthesizable Verilog code) to technology specific gate level netlist (includes nets, sequential and combinational cells and their connectivity).
 
-![Screenshot from 2023-11-03 12-59-04](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/ade10fd3-09bb-4b9e-bfbf-aba48c41d906)
+![Screenshot from 2023-11-04 16-28-15](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/174236f2-115d-498f-8bcf-488f4005e47e)
 
 Synthesis report
-
 
 ![Screenshot from 2023-11-03 14-39-23](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/e644eb2f-2a56-40b2-afc6-d8701c291951)
 
 ### **4. Floorplan**
 
-![Screenshot from 2023-11-03 12-59-24](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/17c94031-0316-479a-9633-0a312b04a978)
+![Screenshot from 2023-11-04 16-29-54](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/b046b61a-bb89-4bcb-a9be-2aa15863d5fc)
 
 ```
 $ magic -T /home/poojar/OpenLane/vsdstdcelldesign/libs/sky130A.tech lef read /home/poojar/OpenLane/LIFO/runs/RUN_2023.11.03_07.14.55/tmp/merged.max.lef def lifo.def &
@@ -267,7 +271,7 @@ $ magic -T /home/poojar/OpenLane/vsdstdcelldesign/libs/sky130A.tech lef read /ho
 
 ### **5. Placement**
 
-![Screenshot from 2023-11-03 13-05-49](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/df657263-8147-4134-b355-ca2ad6e1b5d8)
+![Screenshot from 2023-11-04 18-51-35](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/e9fbbe2e-ae6d-40c1-8e8c-2ef8fd72830a)
 
 ```
 $ magic -T /home/poojar/OpenLane/vsdstdcelldesign/libs/sky130A.tech lef read /home/poojar/OpenLane/LIFO/runs/RUN_2023.11.03_07.14.55/tmp/merged.max.lef def lifo.def &
@@ -279,7 +283,7 @@ $ magic -T /home/poojar/OpenLane/vsdstdcelldesign/libs/sky130A.tech lef read /ho
 
 ### **6. CTS**
 
-![Screenshot from 2023-11-03 13-15-20](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/eaa896f6-3d02-467c-aa60-2bf83f94f149)
+![Screenshot from 2023-11-04 18-53-43](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/9569f3fb-68db-466a-8148-7121e6699568)
 
 #### **Reports Generated**
 
@@ -312,7 +316,7 @@ $ magic -T /home/poojar/OpenLane/vsdstdcelldesign/libs/sky130A.tech lef read /ho
 
 ### **7. Routing**
 
-![Screenshot from 2023-11-03 13-37-54](https://github.com/PoojaR07/pes_lifo_buffer/assets/135737910/2d6b010b-e8cc-4f09-9b7b-61fc6721f666)
+![Screenshot from 2023-11-04 18-55-16](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/956febf4-b967-4e69-9590-a73c669f887b)
 
 ```
 $ magic -T /home/poojar/OpenLane/vsdstdcelldesign/libs/sky130A.tech lef read /home/poojar/OpenLane/LIFO/runs/RUN_2023.11.03_07.14.55/tmp/merged.max.lef def lifo.def &
