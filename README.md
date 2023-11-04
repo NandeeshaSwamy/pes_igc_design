@@ -52,27 +52,26 @@ $ sudo apt-get install iverilog gtkwave
 1. To clone the Repository, type the following commands in your terminal.
 
 ```html
-$ git clone https://github.com/drvasanthi/iiitb_cg
+$ git clone https://github.com/my_ubuntu/pes_cg
 
-$ cd /home/vasanthidr11/Desktop/iiitb_cg/
+$ cd /home/my_ubuntu/pes_cg/
 ```
 
 2. To Run the .v file, type the following commands
 
 ```html
-$ iverilog iiitb_icg.v iiitb_icg_tb.v
+$ iverilog pes_icg.v pes_icg_tb.v
 
 $ ./a.out
-$VCD info: dumpfile iiitb_icg_tb.vcd opened for output.
+$VCD info: dumpfile pes_icg_tb.vcd opened for output.
 
-$ gtkwave iiitb_icg_tb
+$ gtkwave pes_icg_tb
 ```
 ![Screenshot from 2023-10-18 01-11-30](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/c00c42f4-2304-4afa-a20b-881db83cfcf5)
 
 ## ICG - Synthesis
 
 1. Invoke the yosys using following commands
-
 
 ```
 // reads the library file from sky130//
@@ -84,13 +83,13 @@ yosys> read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
 // reads the verilog files//
 
-yosys> read_verilog iiitb_icg.v dff.v
+yosys> read_verilog pes_icg.v dff.v
 ```
 
 ```
 //synthesize the top module of verilog file//  
 
-yosys> synth -top iiitb_icg
+yosys> synth -top pes_icg
 ```
 
 ```
@@ -128,7 +127,7 @@ yosys> show
 ```
 //Writing Netlist//
 
-yosys> write_verilog -noattr iiitb_icg_netlist.v
+yosys> write_verilog -noattr pes_icg_netlist.v
 yosys> stat
 ```
 ![Screenshot from 2023-10-17 23-58-54](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/c2b7ffc1-d218-4490-9288-28a5435f4c33)
@@ -136,7 +135,7 @@ yosys> stat
 ```
 //Simplified Netlist - As code dwells with additional switch//
 
-yosys> !gvim iiitb_icg_netlist.v
+yosys> !gvim pes_icg_netlist.v
 ```
 
 ## GLS Post-Simulation
@@ -144,7 +143,7 @@ yosys> !gvim iiitb_icg_netlist.v
 Commands to Invoke GLS
 
 ```
-$ iverilog -DFUNCTIONAL -DUNIT_DELAY=#1 ../verilog_model/primitives.v ../verilog_model/sky130_fd_sc_hd.v iiitb_icg_synth.v iiitb_icg_tb.v
+$ iverilog -DFUNCT -DUNIT_DELAY=#1 ../verilog_model/primitives.v ../verilog_model/sky130_fd_sc_hd.v pes_icg_synth.v pes_icg_tb.v
 $ ./a.out
 $ gtkwave pes.icg_tb.v
 ```
@@ -152,6 +151,10 @@ $ gtkwave pes.icg_tb.v
 **Gate Level Simulation**
 
 ![Screenshot from 2023-10-17 23-43-27](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/b6c27e18-17a0-4ba2-9ae1-c54b2fa3e255)
+
+
+
+
 
 ## **III. Physical Design from Netlist to GDSII**
 
@@ -225,7 +228,7 @@ make test
   ![Screenshot from 2023-11-04 15-43-43](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/c6078e29-9c16-4cba-aa28-348e8aee03fd)
 
   
-> Step 2:Import openlane packages specifying its version and specify the design that we intend to work on, which is iiitb_icg
+> Step 2:Import openlane packages specifying its version and specify the design that we intend to work on, which is pes_icg
 
 ![Screenshot from 2023-11-04 16-21-09](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/2119109c-e31b-469c-b5bd-dc7c87aab53b)
 
@@ -237,7 +240,7 @@ make test
 
 ![Screenshot from 2023-11-04 16-27-09](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/4c9e35f1-7876-4aed-bef2-47b997db2f09)
 
-This command merges two lefs and places it in a new folder which is named as date and time while running the command, inside directory designs/iiitb_icg/runs/.
+This command merges two lefs and places it in a new folder which is named as date and time while running the command, inside directory designs/pes_icg/runs/.
 
 ### **3. Synthesis**
 
@@ -272,6 +275,13 @@ magic -T /home/my_ubuntu/OpenLane/vsdstdcelldesign/libs/sky130A.tech lef read /h
 ![Screenshot from 2023-11-05 01-30-49](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/0e3be562-fa01-46af-99b0-18fe019f5f1a)
 
 ![Screenshot from 2023-11-05 01-18-58](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/69693175-ab4f-45ca-b75f-d8415743d5f3)
+
+## Statistics
+- Area: 2943 u^2, 2% utilization
+- Internal Power: 9.34e-05
+- Switching Power: 1.60e-05
+- Leakage Power: 1.07e-09
+- Total Power: 1.09e-04
 
 ![Screenshot from 2023-11-05 01-18-35](https://github.com/NandeeshaSwamy/pes_igc_design/assets/135755149/17a11280-d084-44cb-9820-2decf0016936)
 
